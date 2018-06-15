@@ -12,10 +12,12 @@
         <li>
             <a href="{{ path('utilisateur_index') }}">Back to the list</a>
         </li>
+        {% if not utilisateur.hasRole('ROLE_SUPER_ADMIN') %}
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        {% endif %}
     </ul>
 {% endblock %}

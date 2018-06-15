@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UtilisateurType extends AbstractType
+class InscriptionType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -18,24 +18,15 @@ class UtilisateurType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('enabled')
-            ->add('roles', ChoiceType::class, array(
-                    'choices' => array(
-                        'SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
-                        'ADMIN' => 'ROLE_ADMIN',
-                        'Utilisateur' => 'ROLE_USER'
-                    ),
-                    'multiple' => true,
-                    'expanded' => true,
-                    'required' => true,
-                )
-            )
+
         ;
     }
     public function getParent()
     {
         return 'FOS\UserBundle\Form\Type\RegistrationFormType';
 
+        // Or for Symfony < 2.8
+        // return 'fos_user_registration';
     }
     /**
      * {@inheritdoc}
@@ -52,7 +43,7 @@ class UtilisateurType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontbundle_utilisateur';
+        return 'frontbundle_utilisateur_inscription';
     }
 
 

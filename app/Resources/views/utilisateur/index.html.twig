@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for utilisateur in utilisateurs %}
+        {% for utilisateur in utilisateurs  if not(utilisateur.hasRole('ROLE_SUPER_ADMIN'))%}
             <tr>
                 <td><a href="{{ path('utilisateur_show', { 'id': utilisateur.id }) }}">{{ utilisateur.id }}</a></td>
                 <td>{{ utilisateur.nom }}</td>

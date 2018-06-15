@@ -75,10 +75,10 @@ fos_user:
             mailer: fos_user.mailer.twig_swift # this lines
     registration:
         form:
-            type: FrontBundle\Form\UtilisateurType
+            type: FrontBundle\Form\InscriptionType
     profile:
         form:
-            type: FrontBundle\Form\UtilisateurType
+            type: FrontBundle\Form\ProfileType
     from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_user%"
+        address: remy.jerome@live.com
+        sender_name: kurse

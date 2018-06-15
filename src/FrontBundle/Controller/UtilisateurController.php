@@ -34,7 +34,7 @@ class UtilisateurController extends Controller
     public function newAction(Request $request)
     {
         $utilisateur = new Utilisateur();
-        $form = $this->createForm('FrontBundle\Form\ProfileType', $utilisateur);
+        $form = $this->createForm('FrontBundle\Form\UtilisateurType', $utilisateur);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -72,7 +72,8 @@ class UtilisateurController extends Controller
     public function editAction(Request $request, Utilisateur $utilisateur)
     {
         $deleteForm = $this->createDeleteForm($utilisateur);
-        $editForm = $this->createForm('FrontBundle\Form\ProfileType', $utilisateur);
+        $editForm = $this->createForm('FrontBundle\Form\UtilisateurType', $utilisateur);
+        $editForm->remove('plainPassword');
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

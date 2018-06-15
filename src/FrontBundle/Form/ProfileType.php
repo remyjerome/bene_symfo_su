@@ -18,22 +18,12 @@ class ProfileType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('roles', ChoiceType::class, array(
-                       'choices' => array(
-                            'SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
-                            'ADMIN' => 'ROLE_ADMIN',
-                            'Utilisateur' => 'ROLE_USER'
-                        ),
-                    'multiple' => true,
-                    'expanded' => true,
-                    'required' => true,
-                    )
-            )
+
         ;
     }
     public function getParent()
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+        return 'FOS\UserBundle\Form\Type\ProfileFormType';
 
         // Or for Symfony < 2.8
         // return 'fos_user_registration';
@@ -53,7 +43,7 @@ class ProfileType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontbundle_utilisateur';
+        return 'frontbundle_utilisateur_profile';
     }
 
 
