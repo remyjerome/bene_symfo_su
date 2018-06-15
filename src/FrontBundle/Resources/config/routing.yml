@@ -1,0 +1,13 @@
+front_utilisateur:
+    resource: "@FrontBundle/Resources/config/routing/utilisateur.yml"
+    prefix:   /utilisateur
+
+front_profil:
+    path:     /profil
+    defaults: { _controller: FrontBundle:Default:profil }
+
+front_homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:index }
+
+
